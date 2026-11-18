@@ -15,8 +15,19 @@ Source of the binary: `pwntools-tutorial/walkthrough/buffer-overflow-basic` (cou
 2. Overwrite EIP with `0x8048420` (`jmp esp`).
 3. Place shellcode right after the saved EIP.
 
+## Dynamic: crash with a cyclic pattern (lab container, gdb 12.1)
+
+- Input: `cyclic(200)` on stdin.
+- Result: `SIGSEGV` at `0x6161616c` ("laaa").
+- `EIP` = `0x6161616c`, `EBP` = `0x6161616b` ("kaaa").
+- `ESP` = `0xff977c50`, which points at the pattern bytes after the overwritten EIP (`maaa...`).
+- gdb disables ASLR by default here, so these addresses are stable across runs in gdb.
+
+Next: compute the offset from the start of the buffer to EIP (`cyclic_find`), then decide where the shellcode goes.
+
 ## Status
 
 - [x] Recon
+- [x] Crash reproduced in the lab
 - [ ] Offset found
 - [ ] Exploit runs in the lab
