@@ -23,11 +23,17 @@ Source of the binary: `pwntools-tutorial/walkthrough/buffer-overflow-basic` (cou
 - `ESP` = `0xff977c50`, which points at the pattern bytes after the overwritten EIP (`maaa...`).
 - gdb disables ASLR by default here, so these addresses are stable across runs in gdb.
 
-Next: compute the offset from the start of the buffer to EIP (`cyclic_find`), then decide where the shellcode goes.
+## Offset
+
+- `cyclic_find(0x6161616c)` with `context.arch = 'i386'` returns **44**.
+- Verified: payload `b'A' * 44 + p32(0x42424242)` puts `0x42424242` in EIP under gdb.
+- Note: in the container gdb could not disable ASLR (`Operation not permitted`). Stack addresses can change between runs, so do not hardcode the stack address. The `jmp esp` address is fixed, because the binary is not PIE.
+
+Next: send the shellcode after the return address, and use `jmp esp` to jump to it.
 
 ## Status
 
 - [x] Recon
 - [x] Crash reproduced in the lab
-- [ ] Offset found
+- [x] Offset found (44)
 - [ ] Exploit runs in the lab
