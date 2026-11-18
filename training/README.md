@@ -14,6 +14,7 @@ ELF challenge binaries do not execute on macOS. Run them in the lab container.
 - `docker/Dockerfile`: lab image (Ubuntu 22.04, i386 multilib, gdb + pwndbg, pwntools, ropper, ROPgadget)
 - `challenges/<name>/`: one folder per challenge (notes.md, solve.py)
 - `progress.md`: what's solved, when, and what to review
+- `mindmaps/`: Mermaid diagrams of the workflow, thought process, and brainstorm
 - Original course material stays in its own folders (`pwntools-tutorial/`, `dc540-0x00005b/`, ...). Never copy it into `challenges/` or push it to GitHub. Reference it by path.
 
 ## Daily loop (weekdays)
