@@ -29,7 +29,7 @@ Source of the binary: `pwntools-tutorial/walkthrough/buffer-overflow-basic` (cou
 - Verified: payload `b'A' * 44 + p32(0x42424242)` puts `0x42424242` in EIP under gdb.
 - Note: in the container gdb could not disable ASLR (`Operation not permitted`). Stack addresses can change between runs, so do not hardcode the stack address. The `jmp esp` address is fixed, because the binary is not PIE.
 
-Next: send the shellcode after the return address, and use `jmp esp` to jump to it.
+Next step is in the Solution section below.
 
 ## Solution
 
