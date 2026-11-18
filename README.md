@@ -20,3 +20,11 @@ Linux-only challenges run in a container. The lab image is built from `training/
 ## Status
 
 Work in progress. Start with `training/progress.md`.
+
+## Start a challenge
+
+Copy `training/challenges/_template/` to `training/challenges/<name>/`, then fill in `notes.md` as you go.
+
+## License
+
+Released under [CC0 1.0 Universal](LICENSE). Anyone can use, copy, modify, or share this material for any purpose, with no credit required.
