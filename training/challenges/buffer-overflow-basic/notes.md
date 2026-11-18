@@ -21,7 +21,7 @@ Source of the binary: `pwntools-tutorial/walkthrough/buffer-overflow-basic` (cou
 - Result: `SIGSEGV` at `0x6161616c` ("laaa").
 - `EIP` = `0x6161616c`, `EBP` = `0x6161616b` ("kaaa").
 - `ESP` = `0xff977c50`, which points at the pattern bytes after the overwritten EIP (`maaa...`).
-- gdb disables ASLR by default here, so these addresses are stable across runs in gdb.
+- gdb tried to disable ASLR but could not in the container, so the stack addresses are not reliable across runs.
 
 ## Offset
 
