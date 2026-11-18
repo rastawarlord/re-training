@@ -31,9 +31,25 @@ Source of the binary: `pwntools-tutorial/walkthrough/buffer-overflow-basic` (cou
 
 Next: send the shellcode after the return address, and use `jmp esp` to jump to it.
 
+## Solution
+
+Script: `solve.py` (same directory). Payload: `b'A' * 44 + p32(0x8048420) + asm(shellcraft.sh())`.
+
+Why it works:
+- `gets()` has no length limit, so 44 bytes fill the buffer and saved EBP, and the next 4 bytes overwrite EIP.
+- EIP becomes `0x8048420`, the `jmp esp` in `oh_look_useful()`. When `main` returns, execution jumps there.
+- `jmp esp` runs with ESP pointing at the first byte after the overwritten EIP, which is the shellcode.
+- The stack is executable (NX off), so the shellcode runs.
+- Using `jmp esp` avoids hardcoding a stack address, which changes under ASLR.
+
+Debug output confirmed:
+- Payload is 0x5d = 93 bytes: 44 padding + 4 return address + 45 shellcode.
+- The only `0x0a` byte is the newline that `sendline` appends. `gets()` stops at a newline, so nothing before it is cut.
+- `id` printed `uid=0(root)`. The container runs as root. On a real target the shell has the privileges of the vulnerable process.
+
 ## Status
 
 - [x] Recon
 - [x] Crash reproduced in the lab
 - [x] Offset found (44)
-- [ ] Exploit runs in the lab
+- [x] Exploit runs in the lab (shell as root in the container)
