@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y --no-install-recommends \
     gdb gdbserver gcc gcc-multilib g++-multilib make binutils file strace ltrace \
     python3 python3-dev python3-pip python3-venv git curl ca-certificates \
-    netcat-openbsd socat patchelf nasm xxd libc6-dbg:i386 \
+    netcat-openbsd socat patchelf nasm xxd vim libc6-dbg:i386 \
     && rm -rf /var/lib/apt/lists/*
 
 # pwndbg: its own setup script installs the pinned gdb-side pieces.
