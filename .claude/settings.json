@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git show:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull --ff-only:*)",
+      "Bash(ggdb:*)",
+      "Bash(gdb:*)",
+      "Bash(r2:*)",
+      "Bash(radare2:*)",
+      "Bash(objdump:*)",
+      "Bash(readelf:*)",
+      "Bash(nm:*)",
+      "Bash(strings:*)",
+      "Bash(file:*)",
+      "Bash(checksec:*)",
+      "Bash(ROPgadget:*)",
+      "Bash(ropper:*)",
+      "Bash(one_gadget:*)",
+      "Bash(seccomp-tools:*)",
+      "Bash(/Users/rasta/.venvs/re-pwn/bin/python:*)",
+      "Bash(python3:*)",
+      "Bash(ls:*)",
+      "Bash(pwd)"
+    ]
+  }
+}

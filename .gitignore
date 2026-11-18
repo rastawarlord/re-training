@@ -14,3 +14,9 @@ tut.tar.gz
 # Ghidra project artifacts
 *.rep/
 *.gpr
+
+# macOS
+.DS_Store
+
+# Course material (originals; never committed here)
+files/
