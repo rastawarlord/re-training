@@ -1,0 +1,16 @@
+# Existing independent git repos / course material (tracked on their own)
+learning-reverse-engineering/
+pwntools-tutorial/
+files/pwndbg/
+dc540-0x00005b/
+dbg-demo/
+hackaday-u/
+Ghidra-Software-Reverse-Engineering-for-Beginners/
+Mastering-Assembly-Programming/
+dont_hate_the_hacker_hate_the_code/
+# Downloads and debugger history
+tut.tar.gz
+.gdb_history
+# Ghidra project artifacts
+*.rep/
+*.gpr
